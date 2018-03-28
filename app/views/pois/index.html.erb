@@ -1,0 +1,15 @@
+<h1>Pages#indexPois</h1>
+
+<% @pois.each do |poi| %>
+<div>
+  <%= poi.name %>
+  <%= poi.address %>
+  <%= poi.address2 %>
+  <%= poi.zip_code %>
+  <%= poi.city %>
+  <%= poi.pk %>
+  <%= poi.latitude %>
+  <%= poi.longitude %>
+  <%= link_to "Voir", poi_path(poi.id) %>
+</div>
+<% end %>
