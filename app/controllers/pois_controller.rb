@@ -25,7 +25,7 @@ class PoisController < ApplicationController
   private
 
   def set_poi
-    @poi = Poi.find(params[:id])
+    @poi = Poi.friendly.find(params[:id])
   end
 
 end
