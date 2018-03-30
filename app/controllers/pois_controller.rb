@@ -6,6 +6,25 @@ class PoisController < ApplicationController
   end
 
   def show
+    set_poi
+  end
+
+  def new
+    @poi = Poi.new
+  end
+
+  def show
+    set_poi
+  end
+
+  def destroy
+    set_poi
+    @poi.destroy
+  end
+
+  private
+
+  def set_poi
     @poi = Poi.find(params[:id])
   end
 
