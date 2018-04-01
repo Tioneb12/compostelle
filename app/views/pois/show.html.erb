@@ -1,5 +1,6 @@
 <% content_for :meta_title, "#{@poi.name} - #{DEFAULT_META["meta_poi_name"]}" %>
 <% content_for :meta_description, @poi.city %>
+<% content_for :meta_keywords, "#{@poi.city}, #{@poi.city}" %>
 <% content_for :meta_image, cl_image_path("elke-karin-lugert-125493-unsplash.jpg", :quality=>57, :width=>1200, :crop=>"scale") %>
 
 <h1>Pages#showPois</h1>
