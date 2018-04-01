@@ -1,24 +1,20 @@
 class PoisController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_poi, only: [:show, :edit, :update, :destroy]
 
   def index
     @pois = Poi.all
   end
 
   def show
-    set_poi
+    @markers = [{lat: @poi.latitude, lng: @poi.longitude}]
   end
 
   def new
     @poi = Poi.new
   end
 
-  def show
-    set_poi
-  end
-
   def destroy
-    set_poi
     @poi.destroy
   end
 
