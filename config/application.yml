@@ -11,3 +11,4 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 CLOUDINARY_URL: "cloudinary://593713791695596:-0FYx4i8vBsj46_6F3qmsCSVKQ8@tioneb12"
+GOOGLE_API_SERVER_KEY: AIzaSyBXZ7_e2ppVBqTL2pHxmp9iQFsR2gOa5ow
