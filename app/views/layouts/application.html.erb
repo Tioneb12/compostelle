@@ -7,6 +7,7 @@
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
     <meta name="keywords" content="<%= meta_keywords %>">
+    <link rel="alternate" href="<%= request.original_url %>" hreflang="fr"/>
 
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>" />
@@ -36,5 +37,6 @@
     <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
+    <%= javascript_pack_tag "map" %>
   </body>
 </html>
