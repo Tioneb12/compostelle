@@ -15,4 +15,8 @@ module MetaTagsHelper
     # avec une image dans vos assets ou une url absolue
     meta_image.starts_with?("http") ? meta_image : image_url(meta_image)
   end
+
+  def meta_keywords
+    content_for?(:meta_keywords) ? content_for(:meta_keywords) : DEFAULT_META["meta_keywords"]
+  end
 end

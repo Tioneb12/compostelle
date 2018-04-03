@@ -1,5 +1,5 @@
 class PoisController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :new]
   before_action :set_poi, only: [:show, :edit, :update, :destroy]
 
   def index
