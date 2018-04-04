@@ -3,7 +3,16 @@ class PoisController < ApplicationController
   before_action :set_poi, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pois = Poi.all
+    # @pois = Poi.all
+
+    @pois = Poi.where.not(latitude: nil, longitude: nil)
+
+    @markers = @pois.map do |poi|
+      {
+        lat: poi.latitude,
+        lng: poi.longitude
+      }
+    end
   end
 
   def show
