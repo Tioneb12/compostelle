@@ -5,7 +5,7 @@ class Poi < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   def name_and_city
-    "#{name} #{city}"
+    "#{id} #{name}"
   end
 
   def full_address
