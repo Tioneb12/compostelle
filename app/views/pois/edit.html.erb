@@ -1,0 +1,18 @@
+<div class="container">
+<%= simple_form_for @poi do |f| %>
+  <div class="form-inputs">
+    <%= f.error_notification %>
+    <%= f.input :name, required: true, autofocus: true %>
+    <%= f.input :address, required: true %>
+    <%= f.input :address2, required: true %>
+    <%= f.input :zip_code, required: true %>
+    <%= f.input :city, required: true %>
+    <%= f.input :pk %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>
+</div>
