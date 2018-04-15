@@ -10,6 +10,8 @@
   <%= poi.pk %>
   <%= poi.latitude %>
   <%= poi.longitude %>
-  <%= link_to "Voir", poi_path(poi.slug) %>
+  <%= link_to "Show", poi_path(poi.slug) %>
+  <%= link_to "Edit", edit_poi_path(poi.slug)%>
+  <%= link_to "Delete", poi_path(poi.slug), method: :delete %>
 </div>
 <% end %>

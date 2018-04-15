@@ -1,7 +1,7 @@
 class Poi < ApplicationRecord
   extend FriendlyId
   friendly_id :name_and_city, use: :slugged
-  geocoded_by :address
+  geocoded_by :full_address
   after_validation :geocode, if: :will_save_change_to_address?
 
   def name_and_city
