@@ -1,0 +1,13 @@
+<h1>Ways#show</h1>
+<p>Find me in app/views/ways/show.html.erb</p>
+
+<h2>Voie principale</h2>
+<% @tracks1.each do |track| %>
+  <p><%= track.name %> - <%= link_to "Show", way_track_path(track.way_id, track.id) %></p>
+<% end %>
+
+<h2>Voies secondaires</h2>
+
+<% @tracks2.each do |track| %>
+  <p><%= track.name %> - <%= link_to "Show", way_track_path(track.way_id, track.id) %></p>
+<% end %>

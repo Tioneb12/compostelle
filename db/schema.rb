@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330093905) do
+ActiveRecord::Schema.define(version: 20180415144114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,18 @@ ActiveRecord::Schema.define(version: 20180330093905) do
     t.index ["slug"], name: "index_pois_on_slug", unique: true
   end
 
+  create_table "tracks", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "genre"
+    t.string "path"
+    t.boolean "active", default: false
+    t.bigint "way_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["way_id"], name: "index_tracks_on_way_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -57,6 +69,13 @@ ActiveRecord::Schema.define(version: 20180330093905) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "ways", force: :cascade do |t|
+    t.string "voie"
+    t.boolean "active", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
