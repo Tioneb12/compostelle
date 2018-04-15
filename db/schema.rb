@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330093905) do
+ActiveRecord::Schema.define(version: 20180415144944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 20180330093905) do
     t.index ["slug"], name: "index_pois_on_slug", unique: true
   end
 
+  create_table "tracks", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "genre"
+    t.string "path"
+    t.boolean "active", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -59,4 +69,21 @@ ActiveRecord::Schema.define(version: 20180330093905) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "ways", force: :cascade do |t|
+    t.string "voie"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ways_traks", force: :cascade do |t|
+    t.bigint "ways_id"
+    t.bigint "tracks_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tracks_id"], name: "index_ways_traks_on_tracks_id"
+    t.index ["ways_id"], name: "index_ways_traks_on_ways_id"
+  end
+
+  add_foreign_key "ways_traks", "tracks", column: "tracks_id"
+  add_foreign_key "ways_traks", "ways", column: "ways_id"
 end

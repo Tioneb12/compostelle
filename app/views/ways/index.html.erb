@@ -1,0 +1,7 @@
+<h1>Ways#index</h1>
+<p>Find me in app/views/ways/index.html.erb</p>
+
+<% @ways.each do |way| %>
+  <%= way.voie %>
+  <%= link_to "Show", way_path([way.id]) %>
+<% end %>
