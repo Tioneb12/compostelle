@@ -28,3 +28,38 @@ Poi.create!({
   latitude: 4.56677,
   longitude: 5.900089
 })
+
+puts 'Creating ways...'
+
+Way.create! ({
+  voie: "Le Puy",
+  active: true
+}
+)
+
+Way.create! ({
+  voie: "Arles",
+  active: false
+}
+)
+
+puts 'Creating tracks...'
+
+Track.create! ({
+  name: "Le Puy",
+  description: "Le puy blabla",
+  genre: "voi principale",
+  way_id: 1,
+  active: true
+}
+)
+
+Track.create! ({
+  name: "Bonneval",
+  description: "Bonneval blabla",
+  genre: "Variante Bonneval",
+  way_id: 1,
+  active: false
+}
+)
+

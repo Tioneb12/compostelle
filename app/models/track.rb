@@ -1,3 +1,3 @@
 class Track < ApplicationRecord
-  belongs_to :way
+  has_one :way
 end

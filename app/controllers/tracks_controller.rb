@@ -1,10 +1,6 @@
 class TracksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  before_action :set_poi, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @tracks = Track.all
-  end
+  before_action :set_track, only: [:show, :edit, :update, :destroy]
 
   def show
   end

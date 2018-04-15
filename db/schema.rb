@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415144944) do
+ActiveRecord::Schema.define(version: 20180415144114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,8 +48,10 @@ ActiveRecord::Schema.define(version: 20180415144944) do
     t.string "genre"
     t.string "path"
     t.boolean "active", default: false
+    t.bigint "way_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["way_id"], name: "index_tracks_on_way_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,19 +73,9 @@ ActiveRecord::Schema.define(version: 20180415144944) do
 
   create_table "ways", force: :cascade do |t|
     t.string "voie"
+    t.boolean "active", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "ways_traks", force: :cascade do |t|
-    t.bigint "ways_id"
-    t.bigint "tracks_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tracks_id"], name: "index_ways_traks_on_tracks_id"
-    t.index ["ways_id"], name: "index_ways_traks_on_ways_id"
-  end
-
-  add_foreign_key "ways_traks", "tracks", column: "tracks_id"
-  add_foreign_key "ways_traks", "ways", column: "ways_id"
 end
