@@ -3,6 +3,9 @@ class Poi < ApplicationRecord
   friendly_id :name_and_city, use: :slugged
   geocoded_by :full_address
   after_validation :geocode, if: :will_save_change_to_address?
+  belongs_to :way
+  belongs_to :track
+  has_many :pois
 
   def name_and_city
     "#{name} #{city}"
