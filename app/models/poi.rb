@@ -5,7 +5,6 @@ class Poi < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :way
   belongs_to :track
-  has_many :pois
 
   def name_and_city
     "#{name} #{city}"
