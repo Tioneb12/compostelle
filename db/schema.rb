@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416075313) do
+ActiveRecord::Schema.define(version: 20180416122251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,9 @@ ActiveRecord::Schema.define(version: 20180416075313) do
     t.float "longitude"
     t.string "slug"
     t.bigint "way_id"
+    t.bigint "track_id"
     t.index ["slug"], name: "index_pois_on_slug", unique: true
+    t.index ["track_id"], name: "index_pois_on_track_id"
     t.index ["way_id"], name: "index_pois_on_way_id"
   end
 
@@ -80,5 +82,6 @@ ActiveRecord::Schema.define(version: 20180416075313) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "pois", "tracks"
   add_foreign_key "pois", "ways"
 end

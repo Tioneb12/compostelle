@@ -5,30 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-puts 'Creating pois...'
-Poi.create!({
-  name: "Le Dindon en Laisse",
-  address: "18 Rue Beautreillis",
-  address2: "appt 4",
-  zip_code: 12320,
-  city: "Sénergues",
-  pk: 1245.67,
-  latitude: 4.56677,
-  longitude: 5.900089
-})
-
-Poi.create!({
-  name: "Le Dindon en Laisse",
-  address: "18 Rue Beautreillis",
-  address2: "appt 4",
-  zip_code: 12320,
-  city: "Bozouls",
-  pk: 1245.67,
-  latitude: 4.56677,
-  longitude: 5.900089
-})
-
 puts 'Creating ways...'
 
 Way.create! ({
@@ -62,4 +38,32 @@ Track.create! ({
   active: false
 }
 )
+
+
+puts 'Creating pois...'
+Poi.create! ({
+  name: "Le Dindon en Laisse",
+  address: "18 Rue Beautreillis",
+  address2: "appt 4",
+  zip_code: 12320,
+  city: "Sénergues",
+  pk: 1245.67,
+  latitude: 4.56677,
+  longitude: 5.900089,
+  way_id: 1
+})
+
+Poi.create! ({
+  name: "Le Dindon en Laisse",
+  address: "18 Rue Beautreillis",
+  address2: "appt 4",
+  zip_code: 12320,
+  city: "Bozouls",
+  pk: 1245.67,
+  latitude: 4.56677,
+  longitude: 5.900089,
+  way_id: 1
+})
+
+
 
