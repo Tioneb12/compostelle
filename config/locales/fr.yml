@@ -1,0 +1,4 @@
+fr:
+    time:
+      formats:
+        sample: '%d.%m.%Y'
