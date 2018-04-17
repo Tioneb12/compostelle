@@ -1,0 +1,16 @@
+<div class="container">
+<%= simple_form_for [@way, @track] do |f| %>
+  <div class="form-inputs">
+    <%= f.error_notification %>
+    <%= f.input :name, required: true, autofocus: true %>
+    <%= f.input :description, required: true %>
+    <%= f.input :path, required: true %>
+    <%= f.input :active, required: true %>
+    <%= f.input :way_id %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>
+</div>
+
